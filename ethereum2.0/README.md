@@ -86,3 +86,5 @@ the credentials you entered in the `vars/main.yml` file.
 
 After logging in, you should be able to visit the your grafana dashboard:
 ![](assets/grafana.png)
+
+Validator needs to be recognised by the network, therefore might not present any kind of data on grafana. However after 1-3 hours your validator will be up and running.

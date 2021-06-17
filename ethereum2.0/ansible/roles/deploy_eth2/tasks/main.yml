@@ -9,11 +9,11 @@
   until: result is success
   register: result
 
-- name: launch eth2 docker container
+- name: launch etHEREUM docker container
   docker_container:
     name: "beacon-node"
     image: "gcr.io/prysmaticlabs/prysm/beacon-chain:stable"
-    command: "--datadir=/data --rpc-host=0.0.0.0 --monitoring-host=0.0.0.0 --http-web3provider=https://eth-goerli.alchemyapi.io/v2/2Y71pcTykD9sftY5sLybhX73NUg6wclb --pyrmont --accept-terms-of-use"
+    command: "--datadir=/data --rpc-host=0.0.0.0 --monitoring-host=0.0.0.0 --http-web3provider=${{ ETHEREUM_NODE_URL }} --pyrmont --accept-terms-of-use"
     volumes:
       - "/Users/paulius/.eth2:/data"
     ports:

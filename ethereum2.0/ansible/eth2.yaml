@@ -19,18 +19,6 @@
     become: yes
     become_user: root
 
-#- name: configure Node firewall
-#  hosts: node
-#  become: yes
-#  become_user: root
-#  tasks:
-##  - name: add UDP ports
- #   command: firewall-cmd --add-port=0-65535/udp --permanent --zone=public
-  # - name: add P2P port
-  #   command: firewall-cmd --add-port=38383/tcp --permanent --zone=public
-  #- name: reload Firewall
-  #  command: firewall-cmd --reload
-
 - name: Deploy Syntropy agent on eth node
   hosts: node
   become: yes
@@ -39,8 +27,8 @@
     - deploy_agent
   vars:
     SYNTROPY_API_KEY: "{{ SYNTROPY_API_KEY }}"
-    SYNTROPY_AGENT_NAME: "{{ SYNTROPY_AGENT_NAME_E  }}"   
-    SYNTROPY_PROVIDER: "{{ SYNTROPY_PROVIDER_E  }}"
+    SYNTROPY_AGENT_NAME: "ethereum_node"   
+    SYNTROPY_PROVIDER: "16"
   vars_files:
     - vars/main.yml
 
@@ -51,13 +39,13 @@
   roles: 
     - deploy_agent
   vars:
-    SYNTROPY_API_KEY: "{{ SYNTROPY_API_KEY_ }}"
-    SYNTROPY_AGENT_NAME: "{{ SYNTROPY_AGENT_NAME_M  }}"   
-    SYNTROPY_PROVIDER: "{{ SYNTROPY_PROVIDER_M  }}"
+    SYNTROPY_API_KEY: "{{ SYNTROPY_API_KEY }}"
+    SYNTROPY_AGENT_NAME: "monitoring_node"   
+    SYNTROPY_PROVIDER: "3"
   vars_files:
     - vars/main.yml
 
-- name: Deploy ethereum protocol 1.0 on the node
+- name: Deploy ethereum protocol 2.0 on the node
   hosts: node
   become: yes
   become_user: root
