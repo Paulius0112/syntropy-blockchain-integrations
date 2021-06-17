@@ -25,7 +25,7 @@ resource "random_password" "linode_root_password" {
 }
 
 resource "linode_instance" "ethereum_node" {
-  image           = "linode/centos8"
+  image           = "linode/ubuntu18.04"
   label           = "ethereum-node"
   group           = "terraform"
   region          = "eu-central"
@@ -40,7 +40,7 @@ resource "google_compute_instance" "monitoring_node" {
 
   boot_disk {
     initialize_params {
-      image = "centos-8"
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
 
