@@ -24,7 +24,7 @@
     hostname: prometheus
     purge_networks: yes
     volumes:
-      - /home/ethereum/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /home/ethereum/prometheus/:/etc/prometheus/
     network_mode: "syntropy_network"
     networks:
       - name: syntropy_network

@@ -11,15 +11,15 @@
     - "datasources"
 - name: Copy Grafana datasource
   copy:
-    src: promotheus_datasource.yml
+    src: 'datasources/promotheus_datasource.yml'
     dest: /home/ethereum/grafana-conf/datasources/datasource.yml
 - name: Copy Grafana providers
   copy:
-    src: dashboard.yml
+    src: 'dashboard/dashboard.yml'
     dest: /home/ethereum/grafana-conf/dashboards/dashboard.yml
 - name: Copy Grafana dashboard
   copy:
-    src: ethereum_dashboard.json
+    src: 'dashboards/ethereum_dashboard.json'
     dest: /home/ethereum/grafana-conf/dashboards/ethereum_dashboard.json
 
 - name: run Grafana container
