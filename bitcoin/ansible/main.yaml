@@ -64,4 +64,15 @@
     - deploy_grafana
   vars_files:
     - vars/main.yml
+
+- name: Create Syntropy bitcoin network
+  hosts: localhost
+  roles:
+    - syntropy_ethereum_network
+  vars:
+    SYNTROPY_CONTROLLER_URL: "{{ SYNTROPY_CONTROLLER_URL }}"
+    SYNTROPY_USERNAME: "{{ SYNTROPY_USERNAME }}"
+    SYNTROPY_PASSWORD: "{{ SYNTROPY_PASSWORD }}"
+  vars_files:
+    - vars/main.yml
     

@@ -1,15 +1,31 @@
 ---
-- name: Create a Point to multi-point network
-      syntropy_network:
-        name: p2m-network
-        topology: p2m
-        state: present
-        connections:
-          node:
-            state: present
-            type: endpoint
-            connect_to:
-              monitoring:
-                type: tag
-                state: present
-
+name: bitcoin
+state: present
+topology: p2m
+connections:
+  monitoring_node:
+    connect_to:
+      bitcoin_node:
+        type: tag
+        services:
+          - node
+          - exporter
+    state: present
+    type: endpoint 
+    services:
+      - prometheus
+      - grafana
+  localhost:
+    connect_to:
+      bitcoin_node:
+        type: tag
+        services:
+          - node
+          - exporter
+      monitoring_node:
+        type: endpoint
+        services:
+          - prometheus
+          - grafana
+    state: present
+    type: endpoint
